@@ -1,0 +1,8 @@
+<% @users.each_with_index do |u, index| %>
+	
+	<br/>
+	<p>User <%= index+1 %></p>
+	<p>Username: <%= u.username %></p>
+	<p>Email: <%= u.email %></p>
+	<p>Password: <%= u.password %></p>
+<% end %>
