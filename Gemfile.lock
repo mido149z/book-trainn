@@ -141,11 +141,14 @@ GEM
       loofah (~> 2.2, >= 2.2.2)
     rails-ujs (0.1.0)
       railties (>= 3.1)
+<<<<<<< HEAD
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
+=======
+>>>>>>> user-1
     railties (5.2.1)
       actionpack (= 5.2.1)
       activesupport (= 5.2.1)
@@ -224,7 +227,10 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.1)
   rails-ujs (~> 0.1.0)
+<<<<<<< HEAD
   rails_12factor (= 0.0.2)
+=======
+>>>>>>> user-1
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
