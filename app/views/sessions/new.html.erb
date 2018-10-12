@@ -1,0 +1,21 @@
+<div class="row mr-bt-50">
+	
+	<div class="form-body form-login">
+
+		<h2 class="center">Login</h2>
+		<form action="/login" accept-charset="UTF-8" method="post">
+			<input name="utf8" type="hidden" value="&#x2713;" />
+			<input name="authenticity_token" type="hidden" value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
+
+			<label for="session_email">Email</label>
+			<input class="form-control" type="email" name="session[email]" id="session_email" placeholder="Type email or username">
+
+			<label for="session_password">Password</label>
+			<input class="form-control" type="password" name="session[password]" id="session_password" placeholder="Type password">
+
+			<input class="btn btn-primary" type="submit" value="Login" />
+		</form>
+
+		<p class="link-signup">Do you create account? <%= link_to "Sign up now!", signup_path %></p>
+	</div>
+</div>
