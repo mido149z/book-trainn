@@ -33,10 +33,23 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
-	# nhung hai xai cho rieng controller nay
+	def update
+	    @user = User.find(params[:id])
+	    if @user.update_attributes(user_params)
+	      
+	      	flash[:success] = "Update success!"
+      		redirect_to @user
+	    else
+
+	    	flash[:danger] = "Error. Please type again!"
+	      	render 'edit'
+	    end
+	end
+
+	# nhung ham xai cho rieng controller nay
 	private
 		def user_params
-		  params.require(:User).permit(:username, :email, :password)
+		  params.require(:user).permit(:username, :email, :password, :password_confirmation)
 		end
 end
 	

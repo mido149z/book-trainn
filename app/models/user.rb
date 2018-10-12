@@ -4,9 +4,9 @@ class User < ApplicationRecord
 	# convert email ve chu thuong
 	before_save { self.email = email.downcase }
 	has_secure_password
-	validates :password, presence: true, length: { minimum: 6 }
+	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-	validates :username,  presence: true, length: { maximum: 30 }
+	validates :username, length: { maximum: 30 }, allow_nil: true
 
   	valid_email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   	validates :email, presence: true, length: { maximum: 100 },

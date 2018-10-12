@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-	
-  get 'sessions/new'
-  get 'users/new'
 
   get '/users',  to: 'users#index'
   get '/signup',  to: 'users#new'

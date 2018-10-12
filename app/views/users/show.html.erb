@@ -1,3 +1,16 @@
-<p>Username: <%= @user.username %></p>
-<p>Email: <%= @user.email %></p>
-<p>Password: <%= @user.password %></p>
+<div class="row mr-bt-50">
+	
+	<div class="form-body form-login">
+
+		<h2 class="center">Profile</h2>
+		<p class="">Username: <%= @user.username %></p>
+		<p class="">Email: <%= @user.email %></p>
+		<p class="">Password: ******</p>
+
+		<div class="button-actions">
+			<a href="/" class="btn btn-default">Back</a>
+			<a href="/users/<%= @user.id %>/edit" class="btn btn-primary">Edit</a>
+		</div>
+		
+	</div>
+</div>
