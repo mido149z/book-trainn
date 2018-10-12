@@ -1,8 +1,18 @@
-<% @users.each_with_index do |u, index| %>
-	
-	<br/>
-	<p>User <%= index+1 %></p>
-	<p>Username: <%= u.username %></p>
-	<p>Email: <%= u.email %></p>
-	<p>Password: <%= u.password %></p>
-<% end %>
+<div class="row mr-bt-50">
+	<div class="form-body form-login">
+
+		<h2 class="center">List users</h2>
+		<ul class="users">
+		  <% @users.each do |user| %>
+		    <li>
+		      <%= gravatar_for user, size: 50 %>
+		      <%= link_to user.email, user %>
+		    </li>
+		  <% end %>
+		</ul>
+
+		<div class="center">
+			<%= will_paginate %>
+		</div>
+	</div>
+</div>

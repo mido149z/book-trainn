@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+	before_action :logged_in_user, only: [:edit, :update, :index, :show]
 
 	def landing_page
 		
 	end
 
 	def index
-		@users = User.all
+		@users = User.paginate(page: params[:page], :per_page => 20)
 	end
 
 	def new
@@ -45,6 +46,14 @@ class UsersController < ApplicationController
 	      	render 'edit'
 	    end
 	end
+
+	# Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
 
 	# nhung ham xai cho rieng controller nay
 	private
