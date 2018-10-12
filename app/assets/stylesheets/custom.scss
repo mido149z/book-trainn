@@ -76,10 +76,18 @@ body {
 		list-style: none;
 		margin: 0;
 		li {
-		overflow: auto;
-		padding: 10px 0;
-		border-bottom: 1px solid #ddd;
+			overflow: auto;
+			padding: 10px 0;
+			border-bottom: 1px solid #ddd;
 		}
+	}
+
+	.icon-remove{
+		padding: 5px !important;
+	    border: 1px solid #ff000012;
+	    color: red;
+	    border-radius: 5px;
+	    background-color: #ff000012;
 	}
 
 

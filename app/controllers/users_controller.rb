@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-	before_action :logged_in_user, only: [:edit, :update, :index, :show]
+	before_action :logged_in_user, only: [:edit, :update, :index, :show, :destroy]
+
+	# chi co admin moi co quyen xoa user
+	before_action :admin_user, only: :destroy
 
 	def landing_page
 		
@@ -47,6 +50,12 @@ class UsersController < ApplicationController
 	    end
 	end
 
+	def destroy
+	    User.find(params[:id]).destroy
+	    flash[:success] = "User deleted!"
+	    redirect_to users_url
+	end
+
 	# Confirms a logged-in user.
     def logged_in_user
       unless logged_in?
@@ -60,5 +69,10 @@ class UsersController < ApplicationController
 		def user_params
 		  params.require(:user).permit(:username, :email, :password, :password_confirmation)
 		end
+
+		# Confirms an admin user.
+	    def admin_user
+	      redirect_to(root_url) unless current_user.admin?
+	    end
 end
 	

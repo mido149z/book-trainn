@@ -10,6 +10,12 @@
 		<div class="button-actions">
 			<a href="/" class="btn btn-default">Back</a>
 			<a href="/users/<%= @user.id %>/edit" class="btn btn-primary">Edit</a>
+			
+			<% if current_user.admin? && !current_user?(@user) %>
+				<a class="icon-remove" data-confirm="You sure?" rel="nofollow" data-method="delete" href="/users/<%= user.id %>">
+					<span class="glyphicon glyphicon-remove"></span>
+				</a>
+			<% end %>
 		</div>
 		
 	</div>
