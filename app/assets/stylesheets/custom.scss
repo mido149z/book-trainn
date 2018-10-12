@@ -58,6 +58,15 @@ body {
 
 	}
 
+	.text-normal{
+		font-weight: normal;
+	}
+
+	#session_remember_me {
+	  width: auto;
+	  margin-left: 0;
+	}
+
 
 	/* forms */
 
@@ -70,6 +79,10 @@ body {
 
 	input {
 	  height: auto !important;
+	}
+
+	input[type="submit"] {
+		margin-top: 20px;
 	}
 }
 
