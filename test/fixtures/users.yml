@@ -11,3 +11,8 @@ two:
   password: MyString
   username: MyString
   role: 1
+
+user:
+  username: user5
+  email: user5@gm.com
+  password_digest: <%= User.digest('password') %>

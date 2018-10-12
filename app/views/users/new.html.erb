@@ -1,25 +1,31 @@
-<div class="container">
-	<div class="row">
-		
-		<div class="form-body">
-			<form accept-charset="UTF-8" action="/users" class="new_user"
-				  id="new_user" method="post">
-				<input name="utf8" type="hidden" value="&#x2713;" />
-				<input name="authenticity_token" type="hidden"
-				     value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
-				<label for="user_name">Username</label>
-				<input id="user_name" name="User[username]" type="text" />
+<div class="row mr-bt-50">
+	<div class="form-body form-login">
+		<h2 class="center">Signup</h2>
 
-				<label for="user_email">Email</label>
-				<input id="user_email" name="User[email]" type="email" />
+		<form accept-charset="UTF-8" action="/users" class="new_user"
+			  id="new_user" method="post">
+			<input name="utf8" type="hidden" value="&#x2713;" />
+			<input name="authenticity_token" type="hidden" value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
 
-				<label for="user_password">Password</label>
-				<input id="user_password" name="User[password]"
-				     type="password" />
+			<label for="user_name">Username</label>
+			<input id="user_name" name="User[username]" type="text" />
 
-				<input class="btn btn-primary" name="commit" type="submit"
-				     value="Create my account" />
-			</form>
-		</div>
+			<label for="user_email">Email</label>
+			<input id="user_email" name="User[email]" type="email" />
+
+			<label for="user_password">Password</label>
+			<input id="user_password" name="User[password]"
+			     type="password" />
+
+			<label for="user_password">Confirm password</label>
+			<input id="user_password_confirmation" name="User[password_confirmation]"
+			     type="password" />
+			     
+
+			<input class="btn btn-primary" type="submit"
+			     value="Create my account" />
+		</form>
+
+		<p class="link-signup">You have account? <%= link_to "Login", login_path %></p>
 	</div>
 </div>

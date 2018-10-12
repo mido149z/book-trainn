@@ -39,6 +39,24 @@ body {
 			text-align: left !important;
 		}
 	}
+	.center{
+		text-align: center !important;
+	}
+
+	.link-signup{
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	.mr-bt-50{
+		margin-bottom: 50px;
+	}
+
+	.form-login{
+		width: 500px;
+		margin: 40px auto;
+
+	}
 
 
 	/* forms */
@@ -58,7 +76,8 @@ body {
 /* footer */
 
 footer {
-	position: absolute;
+	margin-top: 100px;
+	position: fixed;
 	bottom: 0;
 	padding: 20px 30px;
 	width: 100%;
