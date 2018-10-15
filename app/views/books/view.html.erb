@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="form-body form-login">
+
+		<h2 class="center">Info the book</h2>
+		<p class="">ID: <%= @book.id %></p>
+		<p class="">Name: <%= @book.name %></p>
+		<p class="">Desc: <%= @book.description %></p>
+
+		<div class="button-actions">
+			<a href="/books" class="btn btn-default">Back</a>
+			<a href="/books/<%= @book.id %>/edit" class="btn btn-primary">Edit</a>
+			<a class="btn btn-danger" data-confirm="You sure?" rel="nofollow" data-method="delete" href="/books/<%= @book.id %>">Delete</a>
+		</div>
+		
+	</div>
+</div>

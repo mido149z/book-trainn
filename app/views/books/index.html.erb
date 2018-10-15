@@ -14,13 +14,16 @@
 		</thead>
 
 		<tbody>
-			<% @all.each do |book| %>
+			<% @books.each do |book| %>
 		    	<tr>
 				  	<td><%= book.id %></td>
 				    <td><%= "" %></td>
 				    <td><%= book.name %></td> 
 				    <td><%= book.description %></td>
 				    <td>
+				    	<a class="icon-action icon-warning" rel="nofollow" title="View detail" href="/books/<%= book.id %>">
+							<span class="glyphicon glyphicon-eye-open"></span>
+						</a>
 				    	<a class="icon-action icon-edit" rel="nofollow" title="Edit" href="/books/<%= book.id %>/edit">
 							<span class="glyphicon glyphicon-pencil"></span>
 						</a>
@@ -32,4 +35,8 @@
 		  	<% end %>
 		</tbody>
 	</table>
+
+	<div class="center">
+		<%= will_paginate %>
+	</div>
 </div>

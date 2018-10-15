@@ -89,18 +89,22 @@ body {
 		padding: 5px !important;
 	    border-radius: 5px;
 	    margin: 4px;
+	    background-color: #fff;
 	}
 
 	.icon-remove{
-	    border: 1px solid #ff000012;
-	    color: red;
-	    background-color: #ff000012;
+    	border: 1px solid #d43f3a;
+    	color: #d43f3a;
 	}
 
 	.icon-edit{
-	    background-color: #fff;
     	border: 1px solid #46b8da;
 	    color: #5bc0de;
+	}
+
+	.icon-warning{
+    	border: 1px solid #eea236;
+    	color: #eea236;
 	}
 
 
