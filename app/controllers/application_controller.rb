@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
 	
 	def index
 	end
+
+	def check_permission_view(user)
+		if !current_user.admin && user.id != current_user.id
+
+			flash[:danger] = "Don't see this user!"
+			redirect_to '/'
+		end
+	end
 end

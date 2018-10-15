@@ -9,6 +9,12 @@ class UsersController < ApplicationController
 	end
 
 	def index
+
+		if !current_user.admin
+			flash[:danger] = "This page not intended for user!"
+			redirect_to '/'
+		end
+		
 		@users = User.paginate(page: params[:page], :per_page => 20)
 	end
 
@@ -30,15 +36,21 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+
 	    @user = User.find(params[:id])
+	    check_permission_view(@user)
 	end
 
 	def show
+
 		@user = User.find(params[:id])
+		check_permission_view(@user)
 	end
 
 	def update
+
 	    @user = User.find(params[:id])
+	    check_permission_view(@user)
 	    if @user.update_attributes(user_params)
 	      
 	      	flash[:success] = "Update success!"
@@ -51,7 +63,11 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-	    User.find(params[:id]).destroy
+
+	    @user = User.find(params[:id])
+	    check_permission_view(@user)
+
+	    @user.destroy
 	    flash[:success] = "User deleted!"
 	    redirect_to users_url
 	end
