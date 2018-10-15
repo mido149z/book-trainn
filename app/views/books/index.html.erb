@@ -1,0 +1,35 @@
+<%= render 'layouts/top-button' %>
+
+<div class="form-body">
+
+	<!-- table data -->
+	<table class="table-data" style="width:100%">
+
+		<thead>
+			<th>#</th>
+			<th>Image</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Actions</th>
+		</thead>
+
+		<tbody>
+			<% @all.each do |book| %>
+		    	<tr>
+				  	<td><%= book.id %></td>
+				    <td><%= "" %></td>
+				    <td><%= book.name %></td> 
+				    <td><%= book.description %></td>
+				    <td>
+				    	<a class="icon-action icon-edit" rel="nofollow" title="Edit" href="/books/<%= book.id %>/edit">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+				    	<a class="icon-action icon-remove" data-confirm="You sure?" rel="nofollow" title="Delete" data-method="delete" href="/books/delete/<%= book.id %>">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a>
+				    </td>
+			  </tr>
+		  	<% end %>
+		</tbody>
+	</table>
+</div>

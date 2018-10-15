@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
 
-  get '/users',  to: 'users#index'
-  get '/signup',  to: 'users#new'
-  post '/signup',  to: 'users#create'
+	# url books
+	get '/books/new',  to: 'books#new'
+	post '/books/new',  to: 'books#new'
+	patch '/books/new',  to: 'books#edit'
 
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+	get '/books/:id/edit',  to: 'books#edit'
+	post '/books/:id/edit',  to: 'books#edit'
+	patch '/books/:id/edit',  to: 'books#edit'
 
-  root 'users#landing_page'
-  resources :users
+  	get 'books', to: 'books#index'
+
+	get '/users',  to: 'users#index'
+	get '/signup',  to: 'users#new'
+	post '/signup',  to: 'users#create'
+
+	get    '/login',   to: 'sessions#new'
+	post   '/login',   to: 'sessions#create'
+	delete '/logout',  to: 'sessions#destroy'
+
+	root 'users#landing_page'
+	resources :users
 end

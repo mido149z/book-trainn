@@ -1,0 +1,13 @@
+<%= form_for(@book, url: yield(:url_form)) do |b| %>
+
+  	<%= b.label :name %>
+  	<%= b.text_field :name, class: 'form-control' %>
+
+  	<%= b.label :description %>
+  	<%= b.text_field :description, class: 'form-control' %>
+
+  	<div class="button-actions">
+	  	<a href="/books" title="Back" class="btn btn-default">Back</a>
+  		<button class="btn btn-primary" title="Submit" type="submit"><%= yield(:button_text) %></button>
+  	</div>
+<% end %>
