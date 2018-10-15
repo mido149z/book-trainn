@@ -15,4 +15,12 @@ class ApplicationController < ActionController::Base
 			redirect_to '/'
 		end
 	end
+
+	def check_is_admin(user)
+		
+		if !user.admin
+			flash[:danger] = "You isn't admin!"
+			redirect_to '/'
+		end
+	end
 end

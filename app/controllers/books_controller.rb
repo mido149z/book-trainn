@@ -61,6 +61,10 @@ class BooksController < ApplicationController
 
 	# xoa het bang book
 	def drop
+
+		# check quyen xem 
+  		check_is_admin(current_user)
+
 		Book.delete_all
 		flash[:success] = "Deleted table book!"
 		redirect_to '/books'
