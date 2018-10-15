@@ -5,9 +5,14 @@ Rails.application.routes.draw do
 	post '/books/new',  to: 'books#new'
 	patch '/books/new',  to: 'books#edit'
 
+	get '/books/:id',  to: 'books#view'
+
 	get '/books/:id/edit',  to: 'books#edit'
 	post '/books/:id/edit',  to: 'books#edit'
 	patch '/books/:id/edit',  to: 'books#edit'
+
+	delete '/books/delete/:id',  to: 'books#delete'
+	delete '/books/drop',  to: 'books#drop'
 
   	get 'books', to: 'books#index'
 
