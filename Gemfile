@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 gem 'bcrypt', '3.1.12'
 gem 'faker', '1.7.3'
+gem 'carrierwave'
 
 gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'

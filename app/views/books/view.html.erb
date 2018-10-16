@@ -1,7 +1,10 @@
 <div class="row">
-	<div class="form-body form-login">
+	<div class="form-body form-login center">
 
-		<h2 class="center">Info the book</h2>
+		<h2 class="">Info the book</h2>
+		<div class=" img-book" style="margin-bottom: 20px;">
+			<%= image_tag @book.cover.url  if book.cover? %>
+		</div>
 		<p class="">ID: <%= @book.id %></p>
 		<p class="">Name: <%= @book.name %></p>
 		<p class="">Desc: <%= @book.description %></p>

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 	def create
 
 		@user = User.new(user_params)
+
 		if @user.save
 
 			log_in @user
@@ -44,6 +45,8 @@ class UsersController < ApplicationController
 	def show
 
 		@user = User.find(params[:id])
+		@microposts = @user.microposts.paginate(page: params[:page])
+		
 		check_permission_view(@user)
 	end
 
@@ -83,7 +86,7 @@ class UsersController < ApplicationController
 	# nhung ham xai cho rieng controller nay
 	private
 		def user_params
-		  params.require(:user).permit(:username, :email, :password, :password_confirmation)
+		  params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar)
 		end
 
 		# Confirms an admin user.

@@ -26,4 +26,6 @@ Rails.application.routes.draw do
 
 	root 'users#landing_page'
 	resources :users
+
+	resources :microposts, only: [:create, :destroy]
 end

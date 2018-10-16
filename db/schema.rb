@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_081744) do
+ActiveRecord::Schema.define(version: 2018_10_16_075114) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 2018_10_15_081744) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "owner_id"
+    t.string "cover_filename"
+    t.string "cover"
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_10_15_081744) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin"
+    t.string "avatar"
   end
 
 end

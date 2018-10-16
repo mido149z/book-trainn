@@ -17,7 +17,11 @@
 			<% @books.each do |book| %>
 		    	<tr>
 				  	<td><%= book.id %></td>
-				    <td><%= "" %></td>
+				    <td>
+				    	<div class="img-book img-small">
+							<%= image_tag book.cover.url if book.cover? %>
+						</div>
+					</td>
 				    <td><%= book.name %></td> 
 				    <td><%= book.description %></td>
 				    <td>

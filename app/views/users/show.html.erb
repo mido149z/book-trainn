@@ -3,6 +3,12 @@
 	<div class="form-body form-login">
 
 		<h2 class="center">Profile</h2>
+		<p>
+			<div class="center">
+				<%= link_to gravatar_for(@user, size: 100), @user %>
+			</div>
+		 </p>
+
 		<p class="">Username: <%= @user.username %></p>
 		<p class="">Email: <%= @user.email %></p>
 		<p class="">Password: ******</p>
@@ -17,6 +23,8 @@
 				</a>
 			<% end %>
 		</div>
+
+
 		
 	</div>
 </div>

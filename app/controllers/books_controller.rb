@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 
 	  		# lay id nguoi dang logi ngan vao owner_id de xac nhan chinh chu
 	  		@book[:owner_id] = current_user.id
+
 	  		if @book.save
 
 	  			flash[:success] = "Saved book!"
@@ -92,6 +93,6 @@ class BooksController < ApplicationController
 	private
 		def book_params
 
-			params.require(:book).permit(:name, :description)
+			params.require(:book).permit(:name, :description, :cover)
 		end
 end
