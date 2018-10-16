@@ -120,6 +120,20 @@ body {
 	.img-small img{
 		max-width: 50px;
 	}
+	.img-avatar{
+		display: initial !important;
+
+		img{
+			max-width: 40px;
+			padding: 1px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+	.user-name{
+		padding-left: 35px;
+	}
 
 	/* microposts */
 	.microposts {
