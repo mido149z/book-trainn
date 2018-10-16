@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	attr_accessor :remember_token
-	has_many :microposts, dependent: :destroy
+	mount_uploader :avatar, AvatarUploader
 
 	# convert email ve chu thuong
 	before_save { self.email = email.downcase }

@@ -45,8 +45,6 @@ class UsersController < ApplicationController
 	def show
 
 		@user = User.find(params[:id])
-		@microposts = @user.microposts.paginate(page: params[:page])
-		
 		check_permission_view(@user)
 	end
 
@@ -67,10 +65,7 @@ class UsersController < ApplicationController
 
 	def destroy
 
-	    @user = User.find(params[:id])
-	    check_permission_view(@user)
-
-	    @user.destroy
+	    User.find(params[:id]).destroy
 	    flash[:success] = "User deleted!"
 	    redirect_to users_url
 	end
@@ -91,7 +86,7 @@ class UsersController < ApplicationController
 
 		# Confirms an admin user.
 	    def admin_user
-	      redirect_to(root_url) unless current_user.admin?
+	      	redirect_to(root_url) unless current_user.admin?
 	    end
 end
 	

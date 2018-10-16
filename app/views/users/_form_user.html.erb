@@ -1,22 +1,35 @@
 <%= form_for(@user) do |f| %>
 
-	<span class="picture">
-    	<%= f.file_field :avatar, accept: "image/jpeg, image/gif, image/png, image/jpg" %>
-    </span>
+	<!-- cover book -->
+	<div class="center">
+		<div class="img-book" style="margin-bottom: 20px;">
+			<% if @user.avatar? %>
+				<%= image_tag @user.avatar.url %>
+			<% else %>
+				<%= link_to gravatar_for(@user, size: 120), @user %>
+			<% end %>
+		</div>
+	</div>
+	
+	<%= f.label :avatar %>
+	<%= f.file_field :avatar, accept: "image/jpeg, image/gif, image/png, image/jpg" %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username, class: 'form-control' %>
+  	<%= f.label :username %>
+  	<%= f.text_field :username, class: 'form-control' %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control' %>
+  	<%= f.label :email %>
+  	<%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control' %>
+  	<%= f.label :password %>
+  	<%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
+  	<%= f.label :password_confirmation %>
+  	<%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  	<div class="button-actions">
+	  	<a href="/users" title="Back" class="btn btn-default">Back</a>
+  		<button class="btn btn-primary" title="Submit" type="submit"><%= yield(:button_text) %></button>
+  	</div>
 <% end %>
 
 <script type="text/javascript">

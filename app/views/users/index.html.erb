@@ -1,28 +1,48 @@
-<div class="row mr-bt-50">
-	<div class="form-body form-login">
+<div class="form-body">
 
-		<h2 class="center">List users</h2>
-		<ul class="users">
-		  <% @users.each do |user| %>
-		    <li>
-		    	<div class="col-sm-10">
-			      	<%= gravatar_for user, size: 50 %>
-			      	<%= link_to user.email, user %>
-		      	</div>
+	<!-- table data -->
+	<table class="table-data" style="width:100%">
 
-		      	<div class="col-sm-2">
-			      	<% if current_user.admin? && !current_user?(user) %>
-						<a class="icon-remove" data-confirm="You sure?" rel="nofollow" data-method="delete" href="/users/<%= user.id %>">
+		<thead>
+			<th>#</th>
+			<th>Avatar</th>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Actions</th>
+		</thead>
+
+		<tbody>
+			<% @users.each do |user| %>
+		    	<tr>
+				  	<td><%= user.id %></td>
+				    <td>
+				    	<div class="img-book img-small">
+							<% if user.avatar? %>
+								<%= image_tag user.avatar.url %>
+							<% else %>
+								<%= link_to gravatar_for(user, size: 120), user %>
+							<% end %>
+						</div>
+					</td>
+				    <td><%= user.username %></td> 
+				    <td><%= user.email %></td>
+				    <td>
+				    	<a class="icon-action icon-warning" rel="nofollow" title="View detail" href="/users/<%= user.id %>">
+							<span class="glyphicon glyphicon-eye-open"></span>
+						</a>
+				    	<a class="icon-action icon-edit" rel="nofollow" title="Edit" href="/users/<%= user.id %>/edit">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+				    	<a class="icon-action icon-remove" data-confirm="You sure?" rel="nofollow" title="Delete" data-method="delete" href="/users/<%= user.id %>">
 							<span class="glyphicon glyphicon-remove"></span>
 						</a>
-					<% end %>
-				</div>
-		    </li>
-		  <% end %>
-		</ul>
+				    </td>
+			  </tr>
+		  	<% end %>
+		</tbody>
+	</table>
 
-		<div class="center">
-			<%= will_paginate %>
-		</div>
+	<div class="center">
+		<%= will_paginate %>
 	</div>
 </div>

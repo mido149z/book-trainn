@@ -1,26 +1,26 @@
 <div class="row mr-bt-50">
 	
-	<div class="form-body form-login">
+	<div class="form-body form-login center">
 
 		<h2 class="center">Profile</h2>
-		<p>
-			<div class="center">
-				<%= link_to gravatar_for(@user, size: 100), @user %>
-			</div>
-		 </p>
+		<div class="img-book" style="margin-bottom: 20px;">
+			<% if @user.avatar? %>
+			<%= image_tag @user.avatar.url %>
+			<% else %>
+				<%= link_to gravatar_for(@user, size: 120), @user %>
+			<% end %>
+		</div>
 
 		<p class="">Username: <%= @user.username %></p>
 		<p class="">Email: <%= @user.email %></p>
 		<p class="">Password: ******</p>
 
 		<div class="button-actions">
-			<a href="/" class="btn btn-default">Back</a>
+			<a href="<%= request.referrer %>" class="btn btn-default">Back</a>
 			<a href="/users/<%= @user.id %>/edit" class="btn btn-primary">Edit</a>
 			
-			<% if current_user.admin? && !current_user?(@user) %>
-				<a class="icon-remove" data-confirm="You sure?" rel="nofollow" data-method="delete" href="/users/<%= user.id %>">
-					<span class="glyphicon glyphicon-remove"></span>
-				</a>
+			<% if current_user.admin? %>
+				<a class="btn btn-danger" data-confirm="You sure?" rel="nofollow" data-method="delete" href="/users/<%= @user.id %>">Delete</a>
 			<% end %>
 		</div>
 
