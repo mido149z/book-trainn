@@ -33,9 +33,12 @@
 				    	<a class="icon-action icon-edit" rel="nofollow" title="Edit" href="/users/<%= user.id %>/edit">
 							<span class="glyphicon glyphicon-pencil"></span>
 						</a>
-				    	<a class="icon-action icon-remove" data-confirm="You sure?" rel="nofollow" title="Delete" data-method="delete" href="/users/<%= user.id %>">
-							<span class="glyphicon glyphicon-remove"></span>
-						</a>
+
+						<% if(!user.admin) %>
+					    	<a class="icon-action icon-remove" data-confirm="You sure?" rel="nofollow" title="Delete" data-method="delete" href="/users/<%= user.id %>">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						<% end %>
 				    </td>
 			  </tr>
 		  	<% end %>
