@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 	delete '/logout',  to: 'sessions#destroy'
 	get '/logout',  to: 'sessions#destroy'
 
+	post '/sessions/typemenu'
+
 	root 'users#landing_page'
 	resources :users
 

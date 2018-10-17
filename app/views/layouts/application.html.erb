@@ -15,7 +15,7 @@
 
     <%= render 'layouts/left-menu' %>
     
-    <div class="main">
+    <div class="main <%= session[:menu] == 'collapse' ? 'pdl80': "" %>">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
@@ -42,11 +42,26 @@
 
         // thu gon left menu
         $leftMenu.addClass('collapse');
+        $leftMenu.removeClass('full-menu');
+        $('body').find('.main').addClass('pdl80');
       } else{
 
         // mo rong left menu
         $leftMenu.removeClass('collapse');
+        $leftMenu.addClass('full-menu');
+        $('body').find('.main').removeClass('pdl80');
       }
+
+      // save type menu use
+      $.ajax({
+        url : "/sessions/typemenu",
+        type : "post",
+        dataType:"text",
+        data : {
+          type: $this.data('menu')
+        },
+        success : function (result){}
+      });
     });
 
     // load href left menu

@@ -36,9 +36,17 @@ class SessionsController < ApplicationController
   	redirect_to login_url
   end
 
+  def typemenu
+    if(params[:type])
+
+      # tam thoi luu vao session cua user login
+      session[:menu] = params[:type]
+    end
+  end
+
   private
 
-  def remove_notice
-    flash[:notice] = nil
-  end
+    def remove_notice
+      flash[:notice] = nil
+    end
 end

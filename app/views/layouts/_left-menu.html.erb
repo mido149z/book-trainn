@@ -4,7 +4,7 @@
     @action = params[:action]
 %>
 
-<div class="menu-left-new hide-on-med-and-down new-left-nav">
+<div class="menu-left-new hide-on-med-and-down new-left-nav <%= session[:menu] %>">
     <ul class="nav-mobile">
         <li data-href="/books" title="Books" class="<%= @controller == 'books' ? 'actived' : '' %>">
             <span class="glyphicon glyphicon-book"></span>
@@ -32,9 +32,9 @@
     <div class="footer-left">
         <span class="name-left-menu">Mido 2018</span>
         
-        <span class="scroll-menu glyphicon glyphicon-chevron-left" title="collapse">
+        <span class="scroll-menu glyphicon glyphicon-chevron-left" data-menu="collapse" title="collapse">
         </span>
-        <span class="scroll-menu glyphicon glyphicon-chevron-right hide" title="show full">
+        <span class="scroll-menu glyphicon glyphicon-chevron-right hide" data-menu="full-menu" title="show full">
         </span>
     </div>
 </div>

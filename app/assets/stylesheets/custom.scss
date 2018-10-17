@@ -176,9 +176,6 @@ body {
     	.glyphicon-chevron-right{
     		display: none !important;
     	}
-    	.glyphicon-chevron-left{
-    		display: block !important;
-    	}
     }
 
 	/* main */
@@ -187,6 +184,10 @@ body {
 		padding-left: 270px;
 		margin: 150px auto;
 		width: 90% !important;
+	}
+
+	.pdl80{
+		padding-left: 80px !important;
 	}
 
 	.main-page-login{
