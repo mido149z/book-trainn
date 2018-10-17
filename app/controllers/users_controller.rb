@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :logged_in_user, only: [:edit, :update, :index, :show, :destroy]
+	before_action :is_login, only: [:new, :create]
 
 	# chi co admin moi co quyen xoa user
 	before_action :admin_user, only: :destroy

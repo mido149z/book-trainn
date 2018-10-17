@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   after_action :remove_notice
+  before_action :is_login, only: [:new, :create]
+  
   layout "login", :only => [:create, :new] 
 
   def new

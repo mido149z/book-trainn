@@ -29,6 +29,14 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	# Confirms a logged-in user.
+    def is_login
+      if current_user
+        flash[:success] = "Your'e loginned!"
+        redirect_to '/books'
+      end
+    end
+
 	# Logs out the current user.
 	def log_out
 

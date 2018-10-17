@@ -63,10 +63,13 @@ class BooksController < ApplicationController
 	# xoa het bang book
 	def drop
 
-		# check quyen xem 
-  		check_is_admin(current_user)
-
-		Book.delete_all
+		# for user
+		if(!current_user.admin)
+			Book.where('owner_id' => current_user.id).delete_all
+		else
+			Book.delete_all
+		end
+		
 		flash[:success] = "Deleted table book!"
 		redirect_to '/books'
 	end
