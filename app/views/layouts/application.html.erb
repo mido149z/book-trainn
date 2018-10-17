@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BookApplication</title>
+    <title><%= yield(:title_page) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,18 +13,48 @@
 
     <%= render 'layouts/header' %>
 
-    <div class="container">
-      <%= render 'layouts/left-menu' %>
-      
-      <div class="main">
-        <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %>"><%= message %></div>
-        <% end %>
+    <%= render 'layouts/left-menu' %>
+    
+    <div class="main">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
 
-        <%= yield %>
-      </div>
+      <%= yield %>
     </div>
 
     <%= render 'layouts/footer' %>
   </body>
 </html>
+
+<!-- js -->
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var $leftMenu = $('body').find('.menu-left-new');
+
+    // toogle left menu
+    $leftMenu.on('click', '.scroll-menu', function(e){
+      e.preventDefault();
+      var $this = $(this);
+
+      if($this.hasClass('glyphicon-chevron-left')){
+
+        // thu gon left menu
+        $leftMenu.addClass('collapse');
+      } else{
+
+        // mo rong left menu
+        $leftMenu.removeClass('collapse');
+      }
+    });
+
+    // load href left menu
+    $leftMenu.on('click', '.nav-mobile li', function(e){
+      e.preventDefault();
+      var $this = $(this);
+
+      window.location.href = $this.data('href');
+    });
+  });
+</script>

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 	# chi co admin moi co quyen xoa user
 	before_action :admin_user, only: :destroy
 
+	layout "login", :only => [:create, :new, :landing_page] 
+
 	def landing_page
 		
 	end
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
 
 		if !current_user.admin
 			flash[:danger] = "This page not intended for user!"
-			redirect_to '/'
+			redirect_to '/books'
 		end
 		
 		@users = User.paginate(page: params[:page], :per_page => 20)

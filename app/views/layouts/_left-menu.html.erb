@@ -1,0 +1,40 @@
+<%
+    # setup class actived left menu
+    @controller = params[:controller]
+    @action = params[:action]
+%>
+
+<div class="menu-left-new hide-on-med-and-down new-left-nav">
+    <ul class="nav-mobile">
+        <li data-href="/books" title="Books" class="<%= @controller == 'books' ? 'actived' : '' %>">
+            <span class="glyphicon glyphicon-book"></span>
+            <span class="name-left-menu">Books</span>
+        </li>
+
+        <!-- for admin -->
+        <% if(current_user.admin) %>
+            <li data-href="/users" title="Users" class="<%= @controller == 'users' && @action != 'edit' ? 'actived' : '' %>">
+               <span class="glyphicon glyphicon-user"></span>
+                <span class="name-left-menu">Users</span>
+            </li>
+        <% end %>
+
+        <li data-href="/users/<%= current_user.id %>/edit" title="Profile" class="<%= @controller == 'users' && @action == 'edit'  ? 'actived' : '' %>">
+            <span class="glyphicon glyphicon-check"></span>
+            <span class="name-left-menu">Update profile</span>
+        </li>
+        <li data-href="/logout" title="Logout">
+            <span class="glyphicon glyphicon-log-out"></span>
+            <span class="name-left-menu">Logout</span>
+        </li>
+    </ul>
+
+    <div class="footer-left">
+        <span class="name-left-menu">Mido 2018</span>
+        
+        <span class="scroll-menu glyphicon glyphicon-chevron-left" title="collapse">
+        </span>
+        <span class="scroll-menu glyphicon glyphicon-chevron-right hide" title="show full">
+        </span>
+    </div>
+</div>
