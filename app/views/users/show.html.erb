@@ -20,10 +20,6 @@
 		<div class="button-actions">
 			<a href="<%= request.referrer %>" class="btn btn-default">Back</a>
 			<a href="/users/<%= @user.id %>/edit" class="btn btn-primary">Edit</a>
-			
-			<% if current_user.admin? %>
-				<a class="btn btn-danger" data-confirm="You sure?" rel="nofollow" data-method="delete" href="/users/<%= @user.id %>">Delete</a>
-			<% end %>
 		</div>
 
 
