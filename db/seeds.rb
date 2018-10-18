@@ -12,18 +12,27 @@ User.create!(username:  "admin",
              password_confirmation: "admin123",
              admin: true)
 
+# add user 
 99.times do |n|
   username  = "user-#{n+1}"
   email = "user-#{n+1}@gm.com"
   password = "password"
-  User.create!(username:  username,
+  user = User.create!(username:  username,
                email: email,
                password: password,
                password_confirmation: password)
+
+  # add 5 book with user
+  5.times do |n|
+    cover = nil
+    name = "Book's name #{n+1}"
+    description = "Book's description #{n+1}"
+
+    Book.create!(cover:  cover,
+               name: name,
+               description: description,
+               owner_id: user.id)
+  end
 end
 
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
-end
+#add book

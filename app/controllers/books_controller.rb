@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 	before_action :loginned, only: [:new, :edit, :index, :delete, :drop, :view]
+	skip_before_action :verify_authenticity_token
 
 	# ham them moi va luu thong tin sach
   	def new

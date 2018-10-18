@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  after_action :remove_notice
+  before_action :remove_notice
   before_action :is_login, only: [:new, :create]
   
   layout "login", :only => [:create, :new] 
@@ -25,8 +25,10 @@ class SessionsController < ApplicationController
     	# thong bao loi ra view
     	flash[:danger] = "Invalid email/password. Please type again!"
       
-      	# render html voi view new
-      	render 'new'
+    	# render html voi view new
+      @email = data[:email].downcase
+
+    	render 'new'
     end
   end
 

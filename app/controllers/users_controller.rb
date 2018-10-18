@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
 			log_in @user
 			flash[:success] = "Save success!"
-		  	redirect_to 'new'
+		  	redirect_to @user
 		else
 		  render 'new'
 		end

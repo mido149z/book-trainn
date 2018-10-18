@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2018_10_16_075114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "owner_id"
-    t.string "cover_filename"
     t.string "cover"
   end
 
