@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 			redirect_to '/books'
 		end
 		
-		@users = User.paginate(page: params[:page], :per_page => 20)
+		@users = User.paginate(page: params[:page], :per_page => 10)
 	end
 
 	def new
